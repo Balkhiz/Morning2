@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Mrng</string>
+    <string name="editText2">Name</string>
+    <string name="name">name</string>
+    <string name="email">email</string>
+    <string name="language">language</string>
+    <string name="gender">gender</string>
+
+    <string name="facebook_app_id">135078593961566</string>
+    <string name="google_plus_client_id">97347276512-el5fq3g1c2b2j1if0emg038be89bmht8.apps.googleusercontent.com</string>
+    <color name="blue">#2c3039</color>
+
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Button text -->
+    <string name="btn_logout_from_google">Logout from Google</string>
+    <string name="btn_revoke_access">Revoke Access</string>
+    <string name="title">title</string>
+</resources>

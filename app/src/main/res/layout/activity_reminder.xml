@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_reminder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2c3039"
+    android:orientation="vertical"
+    tools:context="com.balkhiz.mrng.MainActivityScreen3">
+
+
+    <ImageButton
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2c3039"
+        android:layout_marginTop="43dp"
+        android:layout_marginRight="320dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_backward_arrow" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
+        android:text="Reminder"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/image3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2c3039"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="-25dp"
+        android:src="@drawable/ic_attention_sign_outline" />
+
+    <TextView
+        android:id="@+id/update_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="set up your wake up time"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/alarm1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="260dp"
+        android:layout_marginTop="-40dp"
+        android:text="Alarm on"
+        android:background="#2c3039"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/alarm2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="-50dp"
+        android:layout_marginRight="10dp"
+        android:text="Alarm off"
+        android:background="#2c3039"
+        android:textColor="#FFFFFF" />
+
+
+</LinearLayout>

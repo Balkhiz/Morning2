@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "97347276512",
+    "project_id": "mrngg-192705"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97347276512:android:b989ca2b32b234ad",
+        "android_client_info": {
+          "package_name": "com.balkhiz.mrng"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97347276512-rplfec04ahvrk9qm84gcnbmlv077corq.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "97347276512-el5fq3g1c2b2j1if0emg038be89bmht8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.balkhiz.mrng",
+            "certificate_hash": "98edb6324b1ce67476b0bc10b1e1ebb98a7f9cd2"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgNt6YkwuMKwMSCExNtK71gqRxx1zNg3M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

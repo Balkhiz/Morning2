@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2c3039"
+    android:orientation="vertical"
+    tools:context="com.balkhiz.mrng.TaskList">
+
+    <ImageButton
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2c3039"
+        android:layout_marginTop="43dp"
+        android:layout_marginRight="320dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_backward_arrow" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-21dp"
+        android:text="TaskList"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <ImageButton
+        android:id="@+id/image3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2c3039"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="-25dp"
+        android:src="@drawable/ic_attention_sign_outline" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Good Job"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="150dp"
+        android:textColor="#e8c778"
+        android:textSize="35sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Plan your day"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="50dp"
+            android:textColor="#e8c778"
+            android:layout_marginRight="100dp"
+            android:textSize="35sp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+
