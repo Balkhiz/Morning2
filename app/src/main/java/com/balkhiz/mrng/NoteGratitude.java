@@ -1,6 +1,5 @@
 package com.balkhiz.mrng;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,12 +16,10 @@ public class NoteGratitude extends AppCompatActivity {
 
     EditText editText;
     ImageButton image2;
-    DatabaseHelper myDb;
+    DataBaseHelper2G myDb;
 
-    public static final String COLUMN_NAME = "notes";
+    public static final String COLUMN_NAME = "grate";
     private ArrayList<String> list;
-    private String notes;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +30,12 @@ public class NoteGratitude extends AppCompatActivity {
             getWindow().clearFlags( WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS );
         }
         setContentView( R.layout.activity_note_gratitude );
-        myDb = new DatabaseHelper( this );
+        myDb = new DataBaseHelper2G( this );
 
         editText = (EditText) findViewById( R.id.editText );
         image2 = (ImageButton) findViewById( R.id.image2 );
         AddData();
 
-       // Typeface myTypeface = Typeface.createFromAsset( getAssets(), "Lato-Regular.ttf" );
-        //TextView myTextView = (TextView) findViewById( R.id.textView );
-        //myTextView.setTypeface( myTypeface );
 
     }
 
@@ -50,26 +44,30 @@ public class NoteGratitude extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 boolean isInserted = myDb.insertData( editText.getText().toString() );
-                if (isInserted = true)
+                if (isInserted ) {
                     Toast.makeText( NoteGratitude.this, "Data Inserted", Toast.LENGTH_LONG ).show();
-                else
-                    Toast.makeText( NoteGratitude.this, "Data not Inserted", Toast.LENGTH_LONG ).show();
+                    finish();
+                }
+                    else
+                        Toast.makeText( NoteGratitude.this, "Data not Inserted", Toast.LENGTH_LONG ).show();
             }
         } );
 
-        ImageButton imageButton = (ImageButton) findViewById( R.id.imageButton );
+        ImageButton imageButton = (ImageButton) findViewById( R.id.image );
         imageButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent i = new Intent( NoteGratitude.this, GratitudeScreen11.class );
                 startActivity( i );
             }
         } );
 
-        ImageButton imageButton3=(ImageButton)findViewById( R.id.imageButton3 );
+        ImageButton imageButton3=(ImageButton)findViewById( R.id.image3 );
         imageButton3.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent i =new Intent( NoteGratitude.this,welcomeActivityScreen4.class );
                 startActivity( i );
             }

@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#2c3039"
     tools:context=".Reminder10Nw">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="25dp"
+        android:background="#2c3039"
+        android:elevation="4dp"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp">
+
+        <ImageButton
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:background="#2c3039"
+            android:layout_marginLeft="-10dp"
+            android:src="@drawable/ic_backward_arrow"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="58dp"
+            android:layout_marginRight="58dp"
+            android:text="Reminder"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/image2"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_mathematical_addition_sign"
+            android:background="#2c3039"/>
+
+        <ImageButton
+            android:id="@+id/image3"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="-35dp"
+            android:src="@drawable/ic_attention_sign_outline"
+            android:background="#2c3039"/>
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+
+
+
+</LinearLayout>

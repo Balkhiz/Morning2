@@ -87,7 +87,7 @@ public class HomeScreen5 extends AppCompatActivity {
         button4.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent( HomeScreen5.this,ReminderScreen10.class );
+                Intent i = new Intent( HomeScreen5.this,my.class );
                 startActivity( i );
             }
         } );

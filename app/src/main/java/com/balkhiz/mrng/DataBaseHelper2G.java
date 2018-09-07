@@ -5,19 +5,16 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.ArrayList;
-
 /**
  * Created by Balkhiz on 21-Mar-18.
  */
 
  public class DataBaseHelper2G  extends SQLiteOpenHelper {
 
- public static final String DATABASE_NAME = "data.db";
- public static final String TABLE_NAME = "dataTable";
- public static final String COLUMN_NAME = "notes";
- public static String notes;
- private ArrayList<String> list;
+ public static final String DATABASE_NAME = "datanew.db";
+ public static final String TABLE_NAME = "table_gratitude";
+ public static final String COLUMN_NAME = "grate";
+
 
  public DataBaseHelper2G(Context context) {
   super( context, DATABASE_NAME, null, 1);
@@ -26,7 +23,7 @@ import java.util.ArrayList;
  @Override
  public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-  sqLiteDatabase.execSQL( "create table " + TABLE_NAME + "(notes STRING PRIMARY KEY)" );
+  sqLiteDatabase.execSQL( "create table " + TABLE_NAME + "(grate STRING PRIMARY KEY)" );
 
  }
 
@@ -35,11 +32,11 @@ import java.util.ArrayList;
   sqLiteDatabase.execSQL( "DROP TABLE IF EXISTS " + TABLE_NAME );
   onCreate( sqLiteDatabase );
  }
- public boolean  insertData(String notes) {
+ public boolean  insertData(String grate) {
   long result = -1;
   SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
   ContentValues contentValues = new ContentValues();
-  contentValues.put( COLUMN_NAME, notes );
+  contentValues.put( COLUMN_NAME, grate );
   try {
    result = sqLiteDatabase.insert( TABLE_NAME, null, contentValues );
   }

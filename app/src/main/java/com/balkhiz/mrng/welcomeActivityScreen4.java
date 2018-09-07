@@ -115,7 +115,7 @@ public class welcomeActivityScreen4 extends AppCompatActivity {
         getstart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(welcomeActivityScreen4.this, HomeScreen5.class);
+                Intent i = new Intent(welcomeActivityScreen4.this, NavDrawerH5.class);
                 startActivity(i);
             }
         });

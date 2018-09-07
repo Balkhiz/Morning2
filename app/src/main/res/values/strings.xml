@@ -17,4 +17,19 @@
     <string name="btn_logout_from_google">Logout from Google</string>
     <string name="btn_revoke_access">Revoke Access</string>
     <string name="title">title</string>
+    <string name="title_activity_hscreen5">HScreen5</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="title_activity_nav_drawer_h5">NavDrawerH5</string>
+    <string name="custom_title">Custom Title</string>
+
+    <string-array name="ring_tones">
+        <item>maghadheera</item>
+        <item>muskurane</item>
+    </string-array>
+
+
 </resources>

@@ -46,7 +46,8 @@ public class VisionBoardScreen6 extends AppCompatActivity {
         imageButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent( VisionBoardScreen6.this, HomeScreen5.class );
+                finish();
+                Intent i = new Intent( VisionBoardScreen6.this, NavDrawerH5.class );
                 startActivity( i );
             }
         } );
@@ -55,6 +56,7 @@ public class VisionBoardScreen6 extends AppCompatActivity {
         imageButton2.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 Intent i = new Intent( VisionBoardScreen6.this,welcomeActivityScreen4.class );
                 startActivity( i );
             }
@@ -64,11 +66,10 @@ public class VisionBoardScreen6 extends AppCompatActivity {
         imageButton3.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent (VisionBoardScreen6.this, addPicturesScreen7.class);
+                finish();
+                Intent i = new Intent (VisionBoardScreen6.this, visionBoardScreen7.class);
                 startActivity( i );
             }
         } );
-
-
-    }
+        }
 }

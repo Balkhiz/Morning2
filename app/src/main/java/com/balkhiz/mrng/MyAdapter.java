@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by Balkhiz on 04-Feb-18.
  */
@@ -17,11 +19,11 @@ import android.widget.TextView;
 public class MyAdapter extends RecyclerView.Adapter <RecyclerView.ViewHolder>  {
 
 
-    private String[] data;
+    private List<String> list;
     public Context context;
 
-    public MyAdapter(String[] data,Context context) {
-        this.data = data;
+    public MyAdapter(List<String> list,Context context) {
+        this.list = list;
         this.context=context;
     }
 
@@ -57,7 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter <RecyclerView.ViewHolder>  {
     @Override
     public int getItemViewType(int position) {
 
-        if (position < data.length) {
+        if (position < list.size()) {
             return TEXT_VIEW_TYPE;
         } else
             return PLUS_VIEW_TYPE;
@@ -86,7 +88,7 @@ public class MyAdapter extends RecyclerView.Adapter <RecyclerView.ViewHolder>  {
             int viewType = getItemViewType( position );
             switch (viewType) {
                 case TEXT_VIEW_TYPE:
-                    ((ViewHolderInfo)holder).text.setText( data[position] );
+                    ((ViewHolderInfo)holder).text.setText( list.get(position) );
                     break;
 
                 case PLUS_VIEW_TYPE:
@@ -96,6 +98,6 @@ public class MyAdapter extends RecyclerView.Adapter <RecyclerView.ViewHolder>  {
 
         @Override
         public int getItemCount () {
-            return data.length+1;
+            return list.size()+1;
         }
     }

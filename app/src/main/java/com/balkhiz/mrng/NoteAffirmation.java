@@ -24,7 +24,6 @@ public class NoteAffirmation extends AppCompatActivity {
 
     public static final String COLUMN_NAME = "notes";
     private ArrayList <String> list;
-    private String notes;
     private Context context;
 
 
@@ -52,11 +51,15 @@ public class NoteAffirmation extends AppCompatActivity {
         image2.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isInserted = myDb.insertData( editText.getText().toString() );
-                if (isInserted = true)
+                boolean Inserted = myDb.insertData( editText.getText().toString() );
+
+                if (Inserted)
+                {
                     Toast.makeText( NoteAffirmation.this, "Data Inserted", Toast.LENGTH_LONG ).show();
+                    finish();
+                }
                 else
-                    Toast.makeText( NoteAffirmation.this, "Data not Inserted", Toast.LENGTH_LONG ).show();
+                Toast.makeText( NoteAffirmation.this, "Data not Inserted", Toast.LENGTH_LONG ).show();
             }
         } );
 
@@ -65,7 +68,7 @@ public class NoteAffirmation extends AppCompatActivity {
         image.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                finish();
                 Intent i = new Intent( NoteAffirmation.this, AffirmationScreen9.class );
                 startActivity( i );
 
@@ -76,7 +79,7 @@ public class NoteAffirmation extends AppCompatActivity {
         image3.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                finish();
                 Intent i = new Intent( NoteAffirmation.this, welcomeActivityScreen4.class );
                 startActivity( i );
 

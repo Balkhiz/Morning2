@@ -15,7 +15,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "data.db";
     public static final String TABLE_NAME = "data_table";
     public static final String COLUMN_NAME = "notes";
-    public static String notes;
     private ArrayList <String> list;
 
 

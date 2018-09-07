@@ -9,17 +9,19 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by Balkhiz on 05-Feb-18.
  */
 
 public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
-    private String[] data;
+    private List<String> list;
     public Context context;
-    public Adapter(String[] data,Context context)
+    public Adapter(List<String> list,Context context)
     {
-        this.data=data;
+        this.list=list;
         this.context=context;
     }
 
@@ -54,7 +56,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public int getItemViewType(int position) {
 
-        if (position < data.length) {
+        if (position < list.size()) {
             return TEXT_VIEW_TYPE;
         } else
             return PLUS_VIEW_TYPE;
@@ -69,13 +71,12 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 ViewHoldeText viewHolderText = new ViewHoldeText( view );
                 return viewHolderText;
 
-            case PLUS_VIEW_TYPE:
+           default:// case PLUS_VIEW_TYPE:
                 View v = LayoutInflater.from( parent.getContext() ).inflate( R.layout.gratitude11new, parent, false );
                 ViewHolderPlus viewHolderPlus = new ViewHolderPlus( v );
                 return viewHolderPlus;
 
         }
-        return null;
     }
 
     @Override
@@ -84,7 +85,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         int viewType = getItemViewType( position );
         switch (viewType) {
             case TEXT_VIEW_TYPE:
-                ((ViewHoldeText) holder).text.setText( data[position] );
+                ((ViewHoldeText) holder).text.setText( list.get(position) );
                 break;
 
             case PLUS_VIEW_TYPE:
@@ -95,7 +96,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public int getItemCount() {
-        return data.length+1;
+        return list.size()+1;
     }
 
 }

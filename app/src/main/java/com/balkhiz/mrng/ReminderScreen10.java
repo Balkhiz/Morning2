@@ -5,6 +5,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -17,12 +18,15 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 
 public class ReminderScreen10 extends Activity {
+
+
     //to make our alarm manager
     AlarmManager alarm_manager;
     TimePicker alarm_timepicker;
     TextView update_text;
     Context context;
     PendingIntent pending_Intent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,10 @@ public class ReminderScreen10 extends Activity {
         }
         setContentView( R.layout.activity_reminder );
         this.context = this;
+
+        Typeface myTypeface = Typeface.createFromAsset( getAssets(), "Lato-Regular.ttf" );
+        TextView myTextView = (TextView) findViewById( R.id.textView );
+        myTextView.setTypeface( myTypeface );
 
         //initialize our alarm manager
         alarm_manager = (AlarmManager) getSystemService( ALARM_SERVICE );
@@ -47,18 +55,48 @@ public class ReminderScreen10 extends Activity {
         //create ou instance of a calender
         final Calendar calendar = Calendar.getInstance();
 
-        //initialize start button
-        Button alarm_on = (Button) findViewById( R.id.alarm1 );
-        //create an onClick listener to start the alarm
-
         //create an intent to the Alarm Reciever class
         final Intent my_intent = new Intent( this.context, Alarm_Reciever.class );
 
-        //create an onclick listener to create the class
+        //initialize stop button
+        Button alarm_off = (Button) findViewById( R.id.alarm2 );
+
+        //create an onClick listener to start the alarm
+        alarm_off.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //method that changes the update text textbox
+                set_alarm_text( "Alarm off!" );
+
+                //cancel the alarm
+                alarm_manager.cancel( pending_Intent );
+
+                //put extra string into my intent
+                //tells the clock that you pressed the alarm off button
+                my_intent.putExtra( "extra","alarm off" );
+
+                //stop the ringtone
+                sendBroadcast( my_intent );
+
+            }
+
+            private void set_alarm_text(String output) {
+                update_text.setText( output);
+            }
+        } );
+
+
+        //initialize start button
+        Button alarm_on = (Button) findViewById( R.id.alarm1 );
+
+        //create an onClick listener to stop the alarm or undo an alarm set
         alarm_on.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //setting calender instance with the hour and minute that we picked
+                //on the time picker
                 calendar.set( Calendar.HOUR_OF_DAY, alarm_timepicker.getHour() );
                 calendar.set( Calendar.MINUTE, alarm_timepicker.getMinute() );
 
@@ -75,65 +113,39 @@ public class ReminderScreen10 extends Activity {
                     hour_string = String.valueOf( hour - 12 );
                 }
 
-                if (hour < 10) {
+                if (minute < 10) {
                     //10:7 -->10:07
                     minute_string = "0" + String.valueOf( minute );
                 }
 
-                //method that changes the update text Textbox
-                set_alarm_text( "Alarm set to: " + hour_string + ":" + minute_string );
+                //method that changes the update text textbox
+                set_alarm_text("Alarm set to: " + hour_string + ":" + minute_string);
 
-                //put it extra string into my_intent
-                //tells the clock that yu pressed the alarm on button
-
+                //put in extra string into my_intent
+                //tells the clock that you pressed the alarm on button
                 my_intent.putExtra( "extra","alarm on" );
-            }
-            private void set_alarm_text(String s) {
-                update_text.setText( s );
-            }
 
-        } );
+                //create a pending intent that delays the intent
+                //until the specified calender time
+                pending_Intent = PendingIntent.getBroadcast( ReminderScreen10.this,0,my_intent,PendingIntent.FLAG_UPDATE_CURRENT );
 
 
-        //create a pending intent that delays the intent
-        //until the specified calender time
-        pending_Intent=PendingIntent.getBroadcast(ReminderScreen10.this,0,my_intent,PendingIntent.FLAG_UPDATE_CURRENT);
+                //set the alarm manager
+                alarm_manager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pending_Intent);
 
-        //set the alarm manager
-        alarm_manager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pending_Intent);
+                }
 
-
-
-        //initialize stop button
-        Button alarm_off=(Button)findViewById( R.id.alarm2 );
-        //create an onClick listener to stop the alarm or undo an alarm set
-
-        alarm_off.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                set_alarm_text("Alarm off!");
-
-                //cancel the alarm
-                alarm_manager.cancel( pending_Intent );
-
-                //put extra string into my_intent
-                //tells the clock that you pressed the alarm off button
-                my_intent.putExtra( "extra","alarm off");
-
-                //stop the alarm
-                sendBroadcast( my_intent );
-            }
-
-            private void set_alarm_text(String s) {
-                update_text.setText( s );
+            private void set_alarm_text(String output) {
+                update_text.setText( output );
             }
         } );
 
-      ImageButton  imageButton= (ImageButton)findViewById( R.id.image );
+        ImageButton  imageButton= (ImageButton)findViewById( R.id.image );
         imageButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent( ReminderScreen10.this, HomeScreen5.class );
+                finish();
+                Intent i = new Intent( ReminderScreen10.this, NavDrawerH5.class );
                 startActivity( i );
             }
         } );
@@ -142,13 +154,21 @@ public class ReminderScreen10 extends Activity {
         imageButton2.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 Intent i = new Intent(ReminderScreen10.this,welcomeActivityScreen4.class );
                 startActivity( i );
             }
         } );
 
-
-    }
-
+        TextView textView=(TextView)findViewById( R.id.textView2 );
+        textView.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent i =new Intent(ReminderScreen10.this,ReminderScreen10a.class );
+                startActivity( i );
+            }
+        } );
+        }
 }
 

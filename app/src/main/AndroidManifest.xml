@@ -2,7 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.balkhiz.mrng">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -73,6 +82,12 @@
             android:name=".NoteAffirmation"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
+            android:name=".TaskList"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".NoteTaskList"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
             android:name=".NoteGratitude"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
@@ -83,14 +98,50 @@
             android:enabled="true" />
 
         <activity
-            android:name=".TaskList"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:name=".Reminder10Nw"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".NavDrawerH5"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".Settings"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".visionBoardScreen7" />
+        <activity
+            android:name=".my"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
-        </activity>
-        <activity android:name=".NoteTaskList"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+        <receiver android:name=".AlarmReceiver" />
 
+        <service
+            android:name=".AlarmService"
+            android:enabled="true" />
+
+        <activity
+            android:name="com.gun0912.tedpicker.ImagePickerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RateUs"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
+
+        <activity
+            android:name=".Share"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".Logout"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+
+        <activity android:name=".RateNw"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <activity android:name=".RateNw2"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>
